@@ -1,5 +1,4 @@
 import { createElement } from '../helpers/domHelper';
-import { fightersDetails } from '../helpers/mockData';
 
 export function createFighterPreview(fighter, position) {
   const positionClassName = position === 'right' ? 'fighter-preview___right' : 'fighter-preview___left';

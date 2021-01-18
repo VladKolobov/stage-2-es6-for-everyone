@@ -1,4 +1,5 @@
 import { createElement } from '../helpers/domHelper';
+import { fightersDetails } from '../helpers/mockData';
 
 export function createFighterPreview(fighter, position) {
   const positionClassName = position === 'right' ? 'fighter-preview___right' : 'fighter-preview___left';
@@ -8,16 +9,20 @@ export function createFighterPreview(fighter, position) {
   });
 
   // todo: show fighter info (image, name, health, etc.)
-
+  if (fighter) {
+    const figterImage = createFighterImage(fighter);
+    const fighterInfo = createDetailsCard(figter);
+    fighterElement.append(fighterImage, fighterInfo);
+  }
   return fighterElement;
 }
 
 export function createFighterImage(fighter) {
   const { source, name } = fighter;
-  const attributes = { 
-    src: source, 
+  const attributes = {
+    src: source,
     title: name,
-    alt: name 
+    alt: name,
   };
   const imgElement = createElement({
     tagName: 'img',
@@ -26,4 +31,23 @@ export function createFighterImage(fighter) {
   });
 
   return imgElement;
+}
+
+function createDetailsCard(fighter) {
+  const info = createElement({
+    tagName: 'div',
+    className: 'figter-preview__info',
+  });
+
+  const { source, _id, ...fightersDetails } = fighter;
+  for (let property in fightersDetails) {
+    const element = createElement({
+      tagName: 'p',
+      className: `fighter-preview__${property}`,
+    });
+    element.innerText = property + ' ' + fightersDetails[property];
+    info.append(element);
+  }
+
+  return info;
 }

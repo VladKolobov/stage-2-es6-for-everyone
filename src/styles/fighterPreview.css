@@ -4,10 +4,15 @@
   flex-basis: 250px;
 }
 
-.fighter-preview___right {
-  align-items: flex-end;
-}
-
-.fighter-preview___left {
-  align-items: flex-start;
+.fighter-preview___info {
+  padding: 60px;
+  width: 100%;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: start;
+  word-spacing: 0.5rem;
+  box-sizing: border-box;
 }

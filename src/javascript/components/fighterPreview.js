@@ -35,16 +35,13 @@ export function createFighterImage(fighter) {
 function createDetailsCard(fighter) {
   const info = createElement({
     tagName: 'div',
-    className: 'figter-preview__info',
+    className: 'fighter-preview___info',
   });
 
-  const { source, _id, ...fightersDetails } = fighter;
-  for (let property in fightersDetails) {
-    const element = createElement({
-      tagName: 'p',
-      className: `fighter-preview__${property}`,
-    });
-    element.innerText = property + ' ' + fightersDetails[property];
+  const { source, _id, ...fighterDetails } = fighter;
+  for (let property in fighterDetails) {
+    const element = createElement({ tagName: 'p', className: `fighter-preview__${property}` });
+    element.innerText = property + ' ' + fighterDetails[property];
     info.append(element);
   }
 
